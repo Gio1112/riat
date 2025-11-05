@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>RIAT PTFS — About</title>
+  <link rel="icon" type="image/png" href="img/RIAT_White.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;600&family=Open+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+
+  <header class="navbar" id="siteNav" role="banner">
+    <a class="logo" href="index.html"><img src="img/RIAT_White.png" alt="RIAT logo"></a>
+
+    <nav class="menu" role="navigation" aria-label="Main navigation">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link active">About</a>
+      <a href="program.html" class="nav-link">Programme</a>
+      <a href="https://discord.gg/XCzSFguH" class="nav-link" target="_blank" rel="noopener">Discord</a>
+    </nav>
+
+    <button class="nav-toggle" aria-controls="siteNav" aria-expanded="false" onclick="toggleMenu()" aria-label="Toggle menu">&#9776;</button>
+  </header>
+
+  <main>
+    <section class="hero small-hero" style="background-image: url('img/slide-2.png')">
+      <div class="hero-inner">
+        <h1>About the Air Tattoo</h1>
+        <p class="lead">A celebration of aviation, heritage and international cooperation.</p>
+      </div>
+    </section>
+
+    <section class="intro">
+      <div class="container">
+        <h2>Our Story</h2>
+        <p>The Royal International Air Tattoo began as a modest display and has grown into one of the world’s leading military airshows. Each year it brings together aircraft, crews and visitors from across the globe to celebrate aviation excellence.</p>
+
+        <div class="two-col">
+          <div>
+            <h3>Mission</h3>
+            <p>To inspire the next generation through flight, support aviation charities and showcase cutting-edge aerospace technology.</p>
+          </div>
+          <div>
+            <h3>Impact</h3>
+            <p>Over the years the event has raised significant funds for charities, supported STEM outreach, and promoted international friendship through aviation.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <h4>About</h4>
+        <p>The Royal International Air Tattoo celebrates aviation excellence and brings together aircraft and people from around the world.</p>
+      </div>
+      <div>
+        <h4>Quick links</h4>
+        <a href="index.html">Home</a>
+        <a href="program.html">Programme</a>
+        <a href="https://discord.com/channels/1424123135094948004/1424488859500281866">Volunteers</a>
+      </div>
+      <div>
+        <h4>Connect</h4>
+        <a href="https://www.tiktok.com/@ptfs_riat25?_t=ZN-90PkqExu8qk&_r=1">TikTok</a>
+        <a href="https://www.youtube.com/@riat-2025">Youtube</a>
+      </div>
+    </div>
+
+    <div class="container copyright">
+      © 2025 PTFS - Royal International Air Tattoo · Inspired by @ryanthestupid, created by @giorgiodabest
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById('siteNav');
+      nav.classList.toggle('open');
+      const btn = document.querySelector('.nav-toggle');
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+    }
+  </script>
+</body>
+</html>
