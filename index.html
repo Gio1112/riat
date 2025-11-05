@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>giorgio.is-a.dev</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      :root {
+        --accent: #2563eb;
+        --accent2: #9333ea;
+        --accent3: #f59e0b;
+        --bg: #f0f4ff;
+        --card: #ffffff;
+      }
+      body {
+        background: var(--bg);
+        color: #1e293b;
+        font-family: 'Inter', sans-serif;
+      }
+      .fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .glass {
+        background: rgba(255, 255, 255, 0.6);
+        backdrop-filter: blur(10px);
+      }
+      .gradient-text {
+        background: linear-gradient(90deg, var(--accent), #3b82f6);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .header-about {
+        background: linear-gradient(90deg, var(--accent2), #c084fc);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .header-projects {
+        background: linear-gradient(90deg, var(--accent), #60a5fa);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .header-contact {
+        background: linear-gradient(90deg, var(--accent3), #fbbf24);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="flex flex-col md:flex-row items-center justify-between px-8 py-16 max-w-5xl mx-auto">
+      <div class="flex items-center space-x-6">
+        <img id="discord-avatar" alt="Discord Profile" class="rounded-full w-20 h-20 object-cover shadow-lg border-4 border-white" />
+        <div>
+          <h1 class="text-5xl font-extrabold gradient-text">Hi — I'm Giorgio</h1>
+          <p class="text-lg text-gray-600">Aviation enthusiast & Discord bot developer</p>
+        </div>
+      </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-8 space-y-32">
+      <section id="about" class="fade-in">
+        <div class="p-8 rounded-2xl shadow-xl glass">
+          <h2 class="text-3xl font-semibold mb-4 header-about">About Me</h2>
+          <p class="text-gray-700 leading-relaxed">
+            I'm Giorgio, a passionate developer who loves aviation and creating powerful Discord bots for the Ro-Aviation industry. I enjoy combining creativity and technology to bring immersive experiences to online communities.
+          </p>
+        </div>
+      </section>
+
+      <section id="projects" class="fade-in">
+        <h2 class="text-3xl font-semibold mb-8 header-projects">Projects</h2>
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="p-6 rounded-2xl shadow-lg glass border border-white/30">
+            <h3 class="text-xl font-semibold mb-2">ATMOS Rewards Bot</h3>
+            <p class="text-gray-700 mb-4">A simple rewards bot for a PTFS Alaskan Airlines startup, hosted by.</p>
+            <a href="" class="text-blue-600 hover:underline">NO GITHUB AVAILABLE</a>
+          </div>
+          <div class="p-6 rounded-2xl shadow-lg glass border border-white/30">
+            <h3 class="text-xl font-semibold mb-2">Korean Air PTFS Website</h3>
+            <p class="text-gray-700 mb-4">A simple website, requested for a PTC based Korean Air virtual airline.</p>
+            <a href="https://github.com/Gio1112/korean-air" class="text-blue-600 hover:underline">View on GitHub</a>
+          </div>
+          <div class="grid md:grid-cols-1 gap-8">
+            <div class="p-6 rounded-2xl shadow-lg glass border border-white/30">
+              <h3 class="text-xl font-semibold mb-2">BA Helpdesk & BA Utilities</h3>
+              <p class="text-gray-700 mb-4">A set of two bots: a support bot, with nice embeds and graphics and a utilities bot with a simple quick and deployable ready booking system all hosted by me.</p>
+              <a href="" class="text-blue-600 hover:underline">NO GITHUB AVAILABLE</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="fade-in">
+        <div class="p-8 rounded-2xl shadow-xl glass">
+          <h2 class="text-3xl font-semibold mb-4 header-contact">Contact Me</h2>
+          <p class="text-gray-700 mb-4">Want to reach out? You can contact me directly through any of the platforms below:</p>
+          <ul class="space-y-2">
+            <li><a href="mailto:giorgiodabest1@gmail.com" class="text-blue-600 hover:underline">📧 giorgiodabest1@gmail.com</a></li>
+            <li><a id="discord-link" href="https://discord.com/users/882901706587910144" class="text-blue-600 hover:underline">💬 Discord: giorgiodabest#0</a></li>
+            <li><a href="https://github.com/Gio1112" class="text-blue-600 hover:underline">💻 GitHub: Gio1112</a></li>
+            <p id="discord-status" class="text-gray-600">🟡 Status: Connecting...</p>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="mt-32 py-8 text-center text-gray-400 text-sm">
+      © 2025 Giorgio — Built with ❤️ (and pain) and TailwindCSS
+    </footer>
+
+    <script>
+  const faders = document.querySelectorAll('.fade-in');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  });
+  faders.forEach(el => observer.observe(el));
+
+  const discordId = '882901706587910144';
+  const staticAvatar = `https://cdn.discordapp.com/avatars/${discordId}/1ff523b0a986dbc6cb0cb753e143a89d.png?size=256`;
+  document.getElementById('discord-avatar').src = staticAvatar;
+
+  const statusEl = document.getElementById('discord-status');
+
+  async function updateStatus() {
+    try {
+      const res = await fetch(`https://api.lanyard.rest/v1/users/${discordId}`);
+      if (!res.ok) throw new Error("Failed to fetch Lanyard data");
+      const data = await res.json();
+      const presence = data?.data?.discord_status || "offline";
+
+      let emoji = "⚫";
+      if (presence === "online") emoji = "🟢";
+      if (presence === "idle") emoji = "🟠";
+      if (presence === "dnd") emoji = "⛔";
+
+      statusEl.textContent = `${emoji} Status: ${presence}`;
+    } catch (err) {
+      console.error("Status fetch failed:", err);
+      statusEl.textContent = "🔴 Status: Unavailable";
+    }
+  }
+
+  updateStatus(); // run once at start
+  setInterval(updateStatus, 30000); // update every 30 seconds
+</script>
+  </body>
+</html>
